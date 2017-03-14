@@ -5,7 +5,6 @@
 #include <fstream>
 #include "bird.h"
 #include "fish.h"
-#include "beast.h"
 using namespace std;
 int animal::SumElementsOfString(int n)
 {
@@ -22,10 +21,6 @@ animal* animal::InAnimal( ifstream &f1)
 	animal* Animal;
 	int key;
 	f1 >> key;
-	if (key == 2)//2-beast
-	{
-		Animal = new beast;
-	}
 	if (key == 1)//1-fish
 	{
 		Animal = new fish;
@@ -35,6 +30,7 @@ animal* animal::InAnimal( ifstream &f1)
 		Animal = new bird;
 	}
 	Animal->In(f1);
+	f1 >> Animal->age;
 	f1 >> Animal->name;
 	return Animal;
 }
@@ -43,4 +39,6 @@ void animal::OutAnimal(ofstream  &f2)
 	cout << name;
 	f2 << name;
 	Out(f2);
+	cout << ", возраст: " << age << "\n";
+	f2 <<  ", возраст: " << age << "\n";
 }
