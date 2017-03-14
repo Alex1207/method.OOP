@@ -17,7 +17,6 @@ private:
 	node** mas;
 public:
 	container();
-	//void Init(container &c);
 	~container(){Del();};
 	void Del();
 	void In(ifstream & f1);

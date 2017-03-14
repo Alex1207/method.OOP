@@ -61,10 +61,10 @@ void container::Out(ofstream & f2)
 		if (mas[i] != NULL)
 		{
 			node* vn = mas[i];
-			while (mas[i])
+			while (vn)
 			{
-				mas[i]->Animal->OutAnimal(f2);
-				mas[i] = mas[i]->next;
+				vn->Animal->OutAnimal(f2);
+				vn = vn->next;
 			}
 		}
 	}

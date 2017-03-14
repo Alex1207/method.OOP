@@ -13,6 +13,6 @@ void fish::In(ifstream &f1)
 }
 void fish::Out(ofstream &f2)
 {
-	cout <<  " - это рыбка" << ", место ее обитания: " << places[Place] << "\n";
-	f2 <<  " - это рыбка" <<  ", место ее обитания: " << places[Place] << "\n";
+	cout <<  " - это рыбка" << ", место ее обитания: " << places[Place];
+	f2 <<  " - это рыбка" <<  ", место ее обитания: " << places[Place];
 }
