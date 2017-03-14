@@ -9,8 +9,6 @@ using namespace std;
 class animal
 {
 private:
-	//type key;
-	//void* object;
 	string name;
 public:
 	static animal* InAnimal(ifstream &f1);
@@ -18,5 +16,6 @@ public:
 	virtual void In(ifstream  &f1)=0;
 	virtual void Out(ofstream  &f2)=0;
 	int SumElementsOfString(int n);
+	int AmountSymbolsOfString();
 };
 #endif
