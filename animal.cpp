@@ -5,6 +5,7 @@
 #include <fstream>
 #include "bird.h"
 #include "fish.h"
+#include "beast.h"
 using namespace std;
 int animal::SumElementsOfString(int n)
 {
@@ -43,6 +44,18 @@ void animal::OutAnimal(ofstream  &f2)
 	cout << name;
 	f2 << name;
 	Out(f2);
-	cout << ", возраст: " << age << "\n";
-	f2 <<  ", возраст: " << age << "\n";
+	cout << ", возраст: " << age;
+	f2 <<  ", возраст: " << age;
+	//Out(f2);	
+	cout << ". Количество символов в имени: " << AmountSymbolsOfString() << "\n";
+	f2 << ". Количество символов в имени: " << AmountSymbolsOfString() << "\n";
+}
+int  animal::AmountSymbolsOfString()
+{
+	string str = name;
+	return str.length();
+}
+bool animal::Less(animal &Animal2)
+{
+	return (AmountSymbolsOfString() > Animal2.AmountSymbolsOfString());
 }
