@@ -8,9 +8,8 @@ using namespace std;
 #define __animal__
 class animal
 {
-private:
-	//type key;
-	//void* object;
+//private:
+	public:
 	string name;
 public:
 	static animal* InAnimal(ifstream &f1);
@@ -18,5 +17,6 @@ public:
 	virtual void In(ifstream  &f1)=0;
 	virtual void Out(ofstream  &f2)=0;
 	int SumElementsOfString(int n);
+	virtual void OutFish(ofstream & f2);
 };
 #endif

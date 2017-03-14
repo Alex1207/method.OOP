@@ -1,5 +1,5 @@
-// —читывает из файла данные и переписывает их в другой файл в более читаемом виде(объектно-ориентированный стиль)
-//
+// —читывает из файла данные и переписывает их в другой файл в более читаемом виде(процедурный стиль)
+//+вывод только рыбок
 
 #include "stdafx.h"
 #include <Windows.h>
@@ -20,11 +20,11 @@ int _tmain(int argc, _TCHAR* argv[])
 	}
 	ifstream f1(argv[1]);
 	container mas;
-	//mas.Init(mas);
 	mas.In(f1);
 	
 	ofstream f2(argv[2]);
 	mas.Out(f2);
+	mas.OutOnlyFish(f2);
 	mas.Del();
 	system("pause");
 	return 0;
