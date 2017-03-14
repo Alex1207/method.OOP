@@ -4,8 +4,8 @@
 #include "iostream"
 #include <fstream>
 #include "bird.h"
-#include "fish.h"
 #include "beast.h"
+#include "fish.h"
 using namespace std;
 int animal::SumElementsOfString(int n)
 {
@@ -58,4 +58,8 @@ int  animal::AmountSymbolsOfString()
 bool animal::Less(animal &Animal2)
 {
 	return (AmountSymbolsOfString() > Animal2.AmountSymbolsOfString());
+}
+void animal::OutFish(ofstream & f2)
+{
+	cout << endl;
 }

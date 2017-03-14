@@ -53,8 +53,6 @@ void container::In(ifstream & f1)
 }
 void container::Out(ofstream & f2)
 {
-	cout << "Общее количество: " << kol << endl;
-	f2 << "Общее количество: " << kol << endl;
 	for (int i = 0; i<n; i++)
 	{
 		cout << "\n" << i << "\n";
@@ -108,6 +106,21 @@ void container::Sort()
 					prev = Node;
 					Node = Node->next;
 				}
+void container::OutOnlyFish(ofstream & f2)
+{
+	cout << "\n\nТолько рыбки:\n";
+	f2 << "\n\nТолько рыбки:\n";
+	for (int i = 0; i<n; i++)
+	{
+		node* vn = mas[i];
+		//cout << "\n" << i << "\n";
+		if (mas[i] != NULL)
+		{
+			node* vn = mas[i];
+			while (vn)
+			{
+				vn->Animal->OutFish(f2);
+				vn = vn->next;
 			}
 		}
 	}

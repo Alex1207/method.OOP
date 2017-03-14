@@ -10,6 +10,7 @@ class animal
 {
 private:
 	int age;
+public:
 	string name;
 public:
 	static animal* InAnimal(ifstream &f1);
@@ -19,5 +20,6 @@ public:
 	int SumElementsOfString(int n);
 	int AmountSymbolsOfString();	
 	bool Less(animal &Animal2);
+	virtual void OutFish(ofstream & f2);
 };
 #endif

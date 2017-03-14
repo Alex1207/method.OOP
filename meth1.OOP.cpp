@@ -2,6 +2,7 @@
 //+добавлено новое поле "возраст"
 //+добавлена новая функция вычисления количества символов в имени
 //+сортировка
+//+вывод только рыбок
 #include "stdafx.h"
 #include <Windows.h>
 #include "iostream"
@@ -25,6 +26,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	ofstream f2(argv[2]);
 	mas.Sort();
 	mas.Out(f2);
+	mas.OutOnlyFish(f2);
 	mas.Del();
 	system("pause");
 	return 0;
