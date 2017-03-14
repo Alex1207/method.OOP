@@ -55,7 +55,7 @@ void container::Out(ofstream & f2)
 {
 	for (int i = 0; i<n; i++)
 	{
-		//cout << "\n" << i << "\n";
+		cout << "\n" << i << "\n";
 		if (mas[i] != NULL)
 		{
 			node* vn = mas[i];
@@ -63,6 +63,49 @@ void container::Out(ofstream & f2)
 			{
 				vn->Animal->OutAnimal(f2);
 				vn = vn->next;
+			}
+		}
+	}
+}
+void container::Sort()
+{
+	for (int k = 0; k<n; k++)
+	{
+		int koli = 0;
+		node* prev;
+		node* Node = mas[k];
+		while(Node)
+		{
+			Node = Node->next;
+			koli++;
+		}
+		for(int i = 0; i < koli - 1; i++) 
+		{
+			node* prev;
+			Node = mas[k];
+			for(int j = i + 1; j < koli; j++) 
+			{
+				if(Node->Animal->Less(*Node->next->Animal))
+				{
+					node* next = Node->next;
+					Node->next = Node->next->next;
+					next->next = Node;
+					if(Node == mas[k])
+					{
+						mas[k] = next;
+						prev = next;
+					}
+					else
+					{
+						prev->next = next;
+						prev = next;
+					}
+				}
+				else 
+				{
+					prev = Node;
+					Node = Node->next;
+				}
 			}
 		}
 	}

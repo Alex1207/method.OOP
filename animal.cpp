@@ -46,3 +46,7 @@ int  animal::AmountSymbolsOfString()
 	string str = name;
 	return str.length();
 }
+bool animal::Less(animal &Animal2)
+{
+	return (AmountSymbolsOfString() > Animal2.AmountSymbolsOfString());
+}

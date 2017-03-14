@@ -1,6 +1,6 @@
 // —читывает из файла данные и переписывает их в другой файл в более читаемом виде(процедурный стиль)
 //+добавлена нова€ функци€ вычислени€ количества символов в имени
-
+//+сортировка
 #include "stdafx.h"
 #include <Windows.h>
 #include "iostream"
@@ -22,6 +22,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	container mas;
 	mas.In(f1);
 	ofstream f2(argv[2]);
+	mas.Sort();
 	mas.Out(f2);
 	mas.Del();
 	system("pause");

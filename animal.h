@@ -16,6 +16,7 @@ public:
 	virtual void In(ifstream  &f1)=0;
 	virtual void Out(ofstream  &f2)=0;
 	int SumElementsOfString(int n);
-	int AmountSymbolsOfString();
+	int AmountSymbolsOfString();	
+	bool Less(animal &Animal2);
 };
 #endif
