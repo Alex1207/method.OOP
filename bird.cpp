@@ -12,16 +12,24 @@ void bird::In(ifstream &f1)
 }
 void bird::Out(ofstream &f2)
 {
-	cout << " - это птичка, которая ";
+	//cout << " - это птичка, которая ";
 	f2 << " - это птичка, которая ";
 	if(migration)
 	{
-		cout << "мигрирует";
+		//cout << "мигрирует";
 		f2 << "мигрирует";
 	}
 	else 
 	{
-		cout << "не мигрирует";
+		//cout << "не мигрирует";
 		f2 << "не мигрирует";
 	}
+}
+void bird::SetParam(int param)
+{
+	migration = param;
+}
+int bird::GetParam()
+{
+	return migration;
 }

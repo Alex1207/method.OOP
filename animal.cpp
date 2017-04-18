@@ -7,16 +7,7 @@
 #include "beast.h"
 #include "fish.h"
 using namespace std;
-int animal::SumElementsOfString(int n)
-{
-	string str = name;
-	int sum = 0;
-	for (int i = 0; i < str.length(); i++)
-	{
-		sum = (sum + (unsigned char)str[i])%n;
-	}
-	return sum;
-}
+
 animal* animal::InAnimal( ifstream &f1)
 {
 	animal* Animal;
@@ -41,13 +32,13 @@ animal* animal::InAnimal( ifstream &f1)
 }
 void animal::OutAnimal(ofstream  &f2)
 {
-	cout << name;
+	//cout << name;
 	f2 << name;
 	Out(f2);
-	cout << ", возраст: " << age;
+	//cout << ", возраст: " << age;
 	f2 <<  ", возраст: " << age;
 	//Out(f2);	
-	cout << ". Количество символов в имени: " << AmountSymbolsOfString() << "\n";
+	//cout << ". Количество символов в имени: " << AmountSymbolsOfString() << "\n";
 	f2 << ". Количество символов в имени: " << AmountSymbolsOfString() << "\n";
 }
 int  animal::AmountSymbolsOfString()
@@ -55,11 +46,12 @@ int  animal::AmountSymbolsOfString()
 	string str = name;
 	return str.length();
 }
-bool animal::Less(animal &Animal2)
+bool animal::Less(animal* Animal2)
 {
-	return (AmountSymbolsOfString() > Animal2.AmountSymbolsOfString());
+	return (AmountSymbolsOfString() < Animal2->AmountSymbolsOfString());
 }
 void animal::OutFish(ofstream & f2)
 {
-	cout << endl;
+	//cout << endl;
+	f2 << endl;
 }

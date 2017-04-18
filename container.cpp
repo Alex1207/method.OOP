@@ -17,6 +17,7 @@ container::container()
 }
 void container::Del()
 {
+	kol = 0;
 	for (int i = 0; i<n; i++)
 	{
 		while (mas[i] != NULL)
@@ -35,7 +36,7 @@ void container::In(ifstream & f1)
 		animal *Animal;
 		Animal = Animal->InAnimal(f1);
 		int sum = 0;
-		sum = Animal->SumElementsOfString(n);
+		sum = SumElementsOfString(Animal, (n));
 		if (mas[sum] == NULL)
 		{
 			mas[sum] = new node;
@@ -53,9 +54,11 @@ void container::In(ifstream & f1)
 }
 void container::Out(ofstream & f2)
 {
+	//cout << "Общее количество: " << kol << endl;
+	f2 << "Общее количество: " << kol << endl;
 	for (int i = 0; i<n; i++)
 	{
-		cout << "\n" << i << "\n";
+		f2 << "\n" << i << "\n";
 		if (mas[i] != NULL)
 		{
 			node* vn = mas[i];
@@ -85,7 +88,7 @@ void container::Sort()
 			Node = mas[k];
 			for(int j = i + 1; j < koli; j++) 
 			{
-				if(Node->Animal->Less(*Node->next->Animal))
+				if(Node->Animal->Less(Node->next->Animal))
 				{
 					node* next = Node->next;
 					Node->next = Node->next->next;
@@ -106,10 +109,14 @@ void container::Sort()
 					prev = Node;
 					Node = Node->next;
 				}
+			}
+		}
+	}
+}
 void container::OutOnlyFish(ofstream & f2)
 {
-	cout << "\n\nТолько рыбки:\n";
-	f2 << "\n\nТолько рыбки:\n";
+	//cout << "\n\nТолько рыбки:\n";
+	f2 << "\nТолько рыбки:\n";
 	for (int i = 0; i<n; i++)
 	{
 		node* vn = mas[i];
@@ -124,4 +131,14 @@ void container::OutOnlyFish(ofstream & f2)
 			}
 		}
 	}
+}
+int container::SumElementsOfString(animal* Animal, int n)
+{
+	string str = Animal->name;
+	int sum = 0;
+	for (int i = 0; i < str.length(); i++)
+	{
+		sum = (sum + (unsigned char)str[i])%n;
+	}
+	return sum;
 }
