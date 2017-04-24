@@ -6,13 +6,23 @@
 #include "bird.h"
 #include "beast.h"
 #include "fish.h"
+#include "foolproof.h"
 using namespace std;
 
 animal* animal::InAnimal( ifstream &f1)
 {
+	CheckFileExist(f1);	
+	CheckFileEnd(f1);
 	animal* Animal;
 	int key;
-	f1 >> key;;
+	f1 >> key;
+	CheckInputValue(f1);
+	if (!((key>=0)&&(key<3))) 	
+	{
+		cout << "Неверные данные во входном файле(Вид животного может принимать только значения от 0 до 2)!\n";// << key<<endl;
+		system("pause");
+		exit(1);
+	}
 	if (key == 2)//2-beast
 	{
 		Animal = new beast;
@@ -26,7 +36,18 @@ animal* animal::InAnimal( ifstream &f1)
 		Animal = new bird;
 	}
 	Animal->In(f1);
-	f1 >> Animal->age;
+	CheckFileEnd(f1);
+	int age;
+	f1 >> age;
+	CheckInputValue(f1);
+	if (age<0) 	
+	{
+		cout << "Неверные данные во входном файле(Возраст животного не может быть отрицательным)!\n";
+		system("pause");
+		exit(1);
+	}
+	Animal->age = age;		
+	CheckFileEnd(f1);
 	f1 >> Animal->name;
 	return Animal;
 }
