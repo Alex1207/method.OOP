@@ -7,21 +7,21 @@
 
 using namespace std;
 string groups[3] = {"травоядный", "хищный", "всеядный"};
-void beast::In(ifstream &f1)
+void beast::In(ifstream &InFile)
 {	
-	CheckFileExist(f1);	
-	CheckFileEnd(f1);
-	if (!f1)
+	CheckFileExist(InFile);	
+	CheckFileEnd(InFile);
+	if (!InFile)
 	{
 		cout << "Ошибка чтения входного файла! Возможно, файла не существует.\n";
 		system("pause");
 		exit(1);
 	}
 	int G = 3;
-	f1 >> G; 
-	CheckInputValue(f1);
+	InFile >> G; 
+	CheckInputValue(InFile);
 	if ((G>=0)&&(G<3))
-		Group = G;
+		group = G;
 	else 	
 	{
 		cout << "Неверные данные во входном файле(Группа зверя может принимать только значения от 0 до 2)!\n";
@@ -29,19 +29,19 @@ void beast::In(ifstream &f1)
 		exit(1);
 	}
 	/*int q;
-	f1 >> q; 
+	InFile >> q; 
 	Group = q;*/
 }
-void beast::SetParam(int param)
+void beast::SetParam(int Param)
 {
-	Group = param;
+	group = Param;
 }
 int beast::GetParam()
 {
-	return Group;
+	return group;
 }
-void beast::Out(ofstream &f2)
+void beast::Out(ofstream &OutFile)
 {
 	//cout << " - это " << groups[Group] << " звёр";
-	f2 << " - это " << groups[Group] << " звёр";
+	OutFile << " - это " << groups[group] << " звёр";
 }

@@ -13,14 +13,14 @@ public://private:
 public:
 	string name;
 public:
-	static animal* InAnimal(ifstream &f1);
-	void OutAnimal(ofstream &f2);
-	virtual void In(ifstream  &f1) = 0;
-	virtual void Out(ofstream  &f2) = 0;
+	static animal* InAnimal(ifstream &InFile);
+	void OutAnimal(ofstream &OutFile);
+	virtual void In(ifstream  &InFile) = 0;
+	virtual void Out(ofstream  &OutFile) = 0;
 	int AmountSymbolsOfString();	
 	bool Less(animal* Animal2);
-	virtual void OutFish(ofstream & f2);
+	virtual void OutFish(ofstream &OutFile);
 	virtual int GetParam() = 0;
-	virtual void SetParam(int param) = 0;
+	virtual void SetParam(int Param) = 0;
 };
 #endif

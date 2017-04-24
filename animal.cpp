@@ -9,70 +9,70 @@
 #include "foolproof.h"
 using namespace std;
 
-animal* animal::InAnimal( ifstream &f1)
+animal* animal::InAnimal( ifstream &InFile)
 {
-	CheckFileExist(f1);	
-	CheckFileEnd(f1);
+	CheckFileExist(InFile);	
+	CheckFileEnd(InFile);
 	animal* Animal;
-	int key;
-	f1 >> key;
-	CheckInputValue(f1);
-	if (!((key>=0)&&(key<3))) 	
+	int Key;
+	InFile >> Key;
+	CheckInputValue(InFile);
+	if (!((Key>=0)&&(Key<3))) 	
 	{
 		cout << "Неверные данные во входном файле(Вид животного может принимать только значения от 0 до 2)!\n";// << key<<endl;
 		system("pause");
 		exit(1);
 	}
-	if (key == 2)//2-beast
+	if (Key == 2)//2-beast
 	{
 		Animal = new beast;
 	}
-	if (key == 1)//1-fish
+	if (Key == 1)//1-fish
 	{
 		Animal = new fish;
 	}
-	if (key == 0)//0-bird
+	if (Key == 0)//0-bird
 	{
 		Animal = new bird;
 	}
-	Animal->In(f1);
-	CheckFileEnd(f1);
-	int age;
-	f1 >> age;
-	CheckInputValue(f1);
-	if (age<0) 	
+	Animal->In(InFile);
+	CheckFileEnd(InFile);
+	int Age;
+	InFile >> Age;
+	CheckInputValue(InFile);
+	if (Age<0) 	
 	{
 		cout << "Неверные данные во входном файле(Возраст животного не может быть отрицательным)!\n";
 		system("pause");
 		exit(1);
 	}
-	Animal->age = age;		
-	CheckFileEnd(f1);
-	f1 >> Animal->name;
+	Animal->age = Age;		
+	CheckFileEnd(InFile);
+	InFile >> Animal->name;
 	return Animal;
 }
-void animal::OutAnimal(ofstream  &f2)
+void animal::OutAnimal(ofstream  &OutFile)
 {
 	//cout << name;
-	f2 << name;
-	Out(f2);
+	OutFile << name;
+	Out(OutFile);
 	//cout << ", возраст: " << age;
-	f2 <<  ", возраст: " << age;
-	//Out(f2);	
+	OutFile <<  ", возраст: " << age;
+	//Out(OutFile);	
 	//cout << ". Количество символов в имени: " << AmountSymbolsOfString() << "\n";
-	f2 << ". Количество символов в имени: " << AmountSymbolsOfString() << "\n";
+	OutFile << ". Количество символов в имени: " << AmountSymbolsOfString() << "\n";
 }
 int  animal::AmountSymbolsOfString()
 {
-	string str = name;
-	return str.length();
+	string Str = name;
+	return Str.length();
 }
 bool animal::Less(animal* Animal2)
 {
 	return (AmountSymbolsOfString() < Animal2->AmountSymbolsOfString());
 }
-void animal::OutFish(ofstream & f2)
+void animal::OutFish(ofstream & OutFile)
 {
 	//cout << endl;
-	f2 << endl;
+	OutFile << endl;
 }

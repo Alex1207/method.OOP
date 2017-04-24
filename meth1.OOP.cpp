@@ -1,5 +1,5 @@
 // —читывает из файла данные и переписывает их в другой файл в более читаемом виде(процедурный стиль)
-//+ защитное програмирование
+//
 #include "stdafx.h"
 #include <Windows.h>
 #include "iostream"
@@ -17,16 +17,15 @@ int _tmain(int argc, _TCHAR* argv[])
 		cout << "¬ведено неправильное количество аргументов!!!\n¬ведите в формате: <им€_запускаемого_файла> <им€_входного_файла> <им€_выходного_файла>";
 		return 0;
 	}
-	ifstream f1(argv[1]);
+	ifstream InFile(argv[1]);
 	container mas;
-	mas.In(f1);
-	ofstream f2(argv[2]);
+	mas.In(InFile);
+	ofstream OutFile(argv[2]);
 	mas.Sort();
-	mas.Out(f2);
-	mas.OutOnlyFish(f2);
+	mas.Out(OutFile);
+	mas.OutOnlyFish(OutFile);
 	mas.Del();
 	system("pause");
 	return 0;
 }
-
 

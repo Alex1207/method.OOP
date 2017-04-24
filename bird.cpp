@@ -7,13 +7,13 @@
 
 using namespace std;
 
-void bird::In(ifstream &f1)
+void bird::In(ifstream &InFile)
 {	
-	CheckFileExist(f1);
-	CheckFileEnd(f1);
+	CheckFileExist(InFile);
+	CheckFileEnd(InFile);
 	int M = 0;
-	f1 >> M;
-	CheckInputValue(f1);
+	InFile >> M;
+	CheckInputValue(InFile);
 	if ((M == 0) || (M == 1))	
 		migration = M;
 	else 	
@@ -23,24 +23,24 @@ void bird::In(ifstream &f1)
 		exit(1);
 	}
 }
-void bird::Out(ofstream &f2)
+void bird::Out(ofstream &OutFile)
 {
 	//cout << " - это птичка, которая ";
-	f2 << " - это птичка, которая ";
+	OutFile << " - это птичка, которая ";
 	if(migration)
 	{
 		//cout << "мигрирует";
-		f2 << "мигрирует";
+		OutFile << "мигрирует";
 	}
 	else 
 	{
 		//cout << "не мигрирует";
-		f2 << "не мигрирует";
+		OutFile << "не мигрирует";
 	}
 }
-void bird::SetParam(int param)
+void bird::SetParam(int Param)
 {
-	migration = param;
+	migration = Param;
 }
 int bird::GetParam()
 {

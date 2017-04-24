@@ -7,46 +7,46 @@
 
 using namespace std;
 string places[6]={"река", "озеро", "море", "океан", "пруд", "аквариум"};
-void fish::In(ifstream &f1)
+void fish::In(ifstream &InFile)
 {
-	CheckFileExist(f1);
-	CheckFileEnd(f1);
-	int place = 6;
-	f1 >> place; //0 - river, 1 - lake, 2 - sea, 3 - ocean, 4 - pond, 5 - aquarium
-	//f1 >> F->name;
-	CheckInputValue(f1);
-	if ((place>=0)&&(place<6))
-		Place = place;
+	CheckFileExist(InFile);
+	CheckFileEnd(InFile);
+	int Place = 6;
+	InFile >> Place; //0 - river, 1 - lake, 2 - sea, 3 - ocean, 4 - pond, 5 - aquarium
+	//InFile >> F->name;
+	CheckInputValue(InFile);
+	if ((Place>=0)&&(Place<6))
+		place = Place;
 	else
 	{
 		cout << "Неверные данные во входном файле(место обитания рыбок может принимать только значения от 0 до 5)!\n";
 		system("pause");
 		exit(1);
 	}
-	//f1 >> Place; //0 - river, 1 - lake, 2 - sea, 3 - ocean, 4 - pond, 5 - aquarium
-	//f1 >> name;
+	//InFile >> Place; //0 - river, 1 - lake, 2 - sea, 3 - ocean, 4 - pond, 5 - aquarium
+	//InFile >> name;
 }
-void fish::Out(ofstream &f2)
+void fish::Out(ofstream &OutFile)
 {
 	//cout <<  " - это рыбка" << ", место ее обитания: " << places[Place];
-	f2 <<  " - это рыбка" <<  ", место ее обитания: " << places[Place];
+	OutFile <<  " - это рыбка" <<  ", место ее обитания: " << places[place];
 }
-void fish::OutFish(ofstream & f2)
+void fish::OutFish(ofstream & OutFile)
 {
 	//cout << name;
-	f2 << name;
+	OutFile << name;
 	//cout <<  " - это рыбка" << ", место ее обитания: " << places[Place] << endl;
-	f2 <<  " - это рыбка" <<  ", место ее обитания: " << places[Place];	
-	f2 <<  ", возраст: " << age;
-	//Out(f2);	
+	OutFile <<  " - это рыбка" <<  ", место ее обитания: " << places[place];	
+	OutFile <<  ", возраст: " << age;
+	//Out(OutFile);	
 	//cout << ". Количество символов в имени: " << AmountSymbolsOfString() << "\n";
-	f2 << ". Количество символов в имени: " << AmountSymbolsOfString() << "\n";
+	OutFile << ". Количество символов в имени: " << AmountSymbolsOfString() << "\n";
 }
-void fish::SetParam(int param)
+void fish::SetParam(int Param)
 {
-	Place = param;
+	place = Param;
 }
 int fish::GetParam()
 {
-	return Place;
+	return place;
 }

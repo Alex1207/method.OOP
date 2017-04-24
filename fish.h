@@ -8,11 +8,11 @@ class fish: public animal
 {
 private:
 	//string name;
-	int Place;
+	int place;
 public:
-	void In(ifstream &f1);
-	void Out(ofstream &f2);
-	void OutFish(ofstream & f2);
-	void SetParam(int param);//
+	void In(ifstream &InFile);
+	void Out(ofstream &OutFile);
+	void OutFish(ofstream & OutFile);
+	void SetParam(int Param);//
 	int GetParam();
 };

@@ -23,19 +23,19 @@ void container::Del()
 	{
 		while (mas[i] != NULL)
 		{
-			node* vn = mas[i]->next;
+			node* Node = mas[i]->next;
 			delete mas[i];
-			mas[i] = vn;
+			mas[i] = Node;
 		}
 	}
 }
-void container::In(ifstream & f1)
+void container::In(ifstream & InFile)
 {	
-	CheckFileExist(f1);
-	CheckEmptyFile(f1);
+	CheckFileExist(InFile);
+	CheckEmptyFile(InFile);
 	int K;
-	f1 >> K;
-	CheckInputValue(f1);	
+	InFile >> K;
+	CheckInputValue(InFile);	
 	if (K<0) 	
 	{
 		cout << "Неверные данные во входном файле(Количество животных не может быть отрицательным)!\n";
@@ -46,42 +46,42 @@ void container::In(ifstream & f1)
 	for (int i = 0; i<kol; i++)
 	{
 		animal *Animal;
-		Animal = Animal->InAnimal(f1);
-		int sum = 0;
-		sum = SumElementsOfString(Animal, (n));
-		if (mas[sum] == NULL)
+		Animal = Animal->InAnimal(InFile);
+		int Sum = 0;
+		Sum = SumElementsOfString(Animal, (n));
+		if (mas[Sum] == NULL)
 		{
-			mas[sum] = new node;
-			mas[sum]->next = NULL;
-			mas[sum]->Animal = Animal;
+			mas[Sum] = new node;
+			mas[Sum]->next = NULL;
+			mas[Sum]->nAnimal = Animal;
 		}
 		else
 		{
-			node* vn = new node;
-			vn->next = mas[sum];
-			vn->Animal = Animal;
-			mas[sum] = vn;
+			node* Node = new node;
+			Node->next = mas[Sum];
+			Node->nAnimal = Animal;
+			mas[Sum] = Node;
 		}
 	}		
-	if(!f1.eof())
+	if(!InFile.eof())
 	{
 		cout << "После считанных данных в файле есть что-то еще. Эта информация обрабатываться не будет\n";
 	}
 }
-void container::Out(ofstream & f2)
+void container::Out(ofstream & OutFile)
 {
 	//cout << "Общее количество: " << kol << endl;
-	f2 << "Общее количество: " << kol << endl;
+	OutFile << "Общее количество: " << kol << endl;
 	for (int i = 0; i<n; i++)
 	{
-		f2 << "\n" << i << "\n";
+		OutFile << "\n" << i << "\n";
 		if (mas[i] != NULL)
 		{
-			node* vn = mas[i];
-			while (vn)
+			node* Node = mas[i];
+			while (Node)
 			{
-				vn->Animal->OutAnimal(f2);
-				vn = vn->next;
+				Node->nAnimal->OutAnimal(OutFile);
+				Node = Node->next;
 			}
 		}
 	}
@@ -90,71 +90,71 @@ void container::Sort()
 {
 	for (int k = 0; k<n; k++)
 	{
-		int koli = 0;
-		node* prev;
+		int Koli = 0;
+		node* Prev;
 		node* Node = mas[k];
 		while(Node)
 		{
 			Node = Node->next;
-			koli++;
+			Koli++;
 		}
-		for(int i = 0; i < koli - 1; i++) 
+		for(int i = 0; i < Koli - 1; i++) 
 		{
-			node* prev;
+			node* Prev;
 			Node = mas[k];
-			for(int j = i + 1; j < koli; j++) 
+			for(int j = i + 1; j < Koli; j++) 
 			{
-				if(Node->Animal->Less(Node->next->Animal))
+				if(Node->nAnimal->Less(Node->next->nAnimal))
 				{
-					node* next = Node->next;
+					node* Next = Node->next;
 					Node->next = Node->next->next;
-					next->next = Node;
+					Next->next = Node;
 					if(Node == mas[k])
 					{
-						mas[k] = next;
-						prev = next;
+						mas[k] = Next;
+						Prev = Next;
 					}
 					else
 					{
-						prev->next = next;
-						prev = next;
+						Prev->next = Next;
+						Prev = Next;
 					}
 				}
 				else 
 				{
-					prev = Node;
+					Prev = Node;
 					Node = Node->next;
 				}
 			}
 		}
 	}
 }
-void container::OutOnlyFish(ofstream & f2)
+void container::OutOnlyFish(ofstream & OutFile)
 {
 	//cout << "\n\nТолько рыбки:\n";
-	f2 << "\nТолько рыбки:\n";
+	OutFile << "\nТолько рыбки:\n";
 	for (int i = 0; i<n; i++)
 	{
-		node* vn = mas[i];
+		node* Node = mas[i];
 		//cout << "\n" << i << "\n";
 		if (mas[i] != NULL)
 		{
-			node* vn = mas[i];
-			while (vn)
+			node* Node = mas[i];
+			while (Node)
 			{
-				vn->Animal->OutFish(f2);
-				vn = vn->next;
+				Node->nAnimal->OutFish(OutFile);
+				Node = Node->next;
 			}
 		}
 	}
 }
-int container::SumElementsOfString(animal* Animal, int n)
+int container::SumElementsOfString(animal* Animal, int N)
 {
-	string str = Animal->name;
-	int sum = 0;
-	for (int i = 0; i < str.length(); i++)
+	string Str = Animal->name;
+	int Sum = 0;
+	for (int i = 0; i < Str.length(); i++)
 	{
-		sum = (sum + (unsigned char)str[i])%n;
+		Sum = (Sum + (unsigned char)Str[i])%N;
 	}
-	return sum;
+	return Sum;
 }

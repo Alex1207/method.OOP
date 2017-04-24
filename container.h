@@ -6,7 +6,7 @@
 using namespace std;
 struct node//узел
 {
-	animal *Animal;
+	animal *nAnimal;
 	node* next;
 };
 class container
@@ -18,10 +18,10 @@ public://private:
 public:
 	container();
 	~container(){Del();};
-	int SumElementsOfString(animal* Animal, int n);
+	int SumElementsOfString(animal* Animal, int N);
 	void Del();
-	void In(ifstream & f1);
-	void Out(ofstream & f2);
+	void In(ifstream & InFile);
+	void Out(ofstream & OutFile);
 	void Sort();
-	void OutOnlyFish(ofstream & f2);
+	void OutOnlyFish(ofstream & OutFile);
 };
