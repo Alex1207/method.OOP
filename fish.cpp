@@ -50,3 +50,22 @@ int fish::GetParam()
 {
 	return place;
 }
+void fish::MultiMethod(animal* Other, ofstream  &OutFile)
+{
+	Other->MMFish(OutFile);
+}
+void fish::MMFish(ofstream &OutFile)
+{
+	//cout << "\nÐûáêà è ðûáêà" << endl;
+	OutFile << "\nÐûáêà è ðûáêà" << endl;
+}
+void fish::MMBird(ofstream &OutFile)
+{
+	//cout << "\nÏòè÷êà è ðûáêà" << endl;
+	OutFile << "\nÏòè÷êà è ðûáêà" << endl;
+}
+void fish::MMBeast(ofstream &OutFile)
+{
+	//cout << "\nÇâ¸ð è ðûáêà" << endl;
+	OutFile << "\nÇâ¸ð è ðûáêà" << endl;
+}

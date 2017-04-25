@@ -46,3 +46,22 @@ int bird::GetParam()
 {
 	return migration;
 }
+void bird::MultiMethod(animal* Other, ofstream  &OutFile)
+{
+	Other->MMBird(OutFile);
+}
+void bird::MMFish(ofstream &OutFile)
+{
+	//cout << "\nÐûáêà è ïòè÷êà" << endl;
+	OutFile << "\nÐûáêà è ïòè÷êà" << endl;
+}
+void bird::MMBird(ofstream &OutFile)
+{
+	//cout << "\nÏòè÷êà è ïòè÷êà" << endl;
+	OutFile << "\nÏòè÷êà è ïòè÷êà" << endl;
+}
+void bird::MMBeast(ofstream &OutFile)
+{
+	//cout << "\nÇâ¸ð è ïòè÷êà" << endl;
+	OutFile << "\nÇâ¸ð è ïòè÷êà" << endl;
+}

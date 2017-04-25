@@ -45,3 +45,22 @@ void beast::Out(ofstream &OutFile)
 	//cout << " - ýòî " << groups[Group] << " çâ¸ð";
 	OutFile << " - ýòî " << groups[group] << " çâ¸ð";
 }
+void beast::MultiMethod(animal* Other, ofstream  &OutFile)
+{
+	Other->MMBeast(OutFile);
+}
+void beast::MMFish(ofstream &OutFile)
+{
+	//cout << "\nÐûáêà è çâ¸ð" << endl;
+	OutFile << "\nÐûáêà è çâ¸ð" << endl;
+}
+void beast::MMBird(ofstream &OutFile)
+{
+	//cout << "\nÏòè÷êà è çâ¸ð" << endl;
+	OutFile << "\nÏòè÷êà è çâ¸ð" << endl;
+}
+void beast::MMBeast(ofstream &OutFile)
+{
+	//cout << "\nÇâ¸ð è çâ¸ð" << endl;
+	OutFile << "\nÇâ¸ð è çâ¸ð" << endl;
+}

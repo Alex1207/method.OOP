@@ -15,4 +15,8 @@ public:
 	void OutFish(ofstream & OutFile);
 	void SetParam(int Param);//
 	int GetParam();
+	void MultiMethod(animal* Other, ofstream  &OutFile);
+	void MMFish(ofstream &OutFile);
+	void MMBird(ofstream &OutFile);
+	void MMBeast(ofstream &OutFile);
 };

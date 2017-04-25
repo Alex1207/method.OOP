@@ -24,4 +24,5 @@ public:
 	void Out(ofstream & OutFile);
 	void Sort();
 	void OutOnlyFish(ofstream & OutFile);
+	void MultiMethod(ofstream  &OutFile);
 };

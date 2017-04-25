@@ -158,3 +158,43 @@ int container::SumElementsOfString(animal* Animal, int N)
 	}
 	return Sum;
 }
+void container::MultiMethod(ofstream  &OutFile)
+{
+	int k = 0;
+	//cout << "\nМультиметод: " << endl;
+	OutFile << "\nМультиметод: "  << endl;
+	for (int i = 0; i<n; i++)
+	{
+		//cout << "\n" << i << "\n";
+		if (mas[i] != NULL)
+		{
+			node* Node1 = mas[i];
+			while (Node1)
+			{
+				for (int j = i; j<n; j++)
+				{
+					node* Node2;
+					if (j==i)
+						Node2 = Node1->next;
+					else
+						Node2 = mas[j];
+					//cout << "\n" << i << "\n";
+					if (mas[i] != NULL)
+					{
+						//vn2 = mas[i];
+						while (Node2)
+						{
+							k++;
+							//cout << k << endl;
+							Node1->nAnimal->MultiMethod(Node2->nAnimal, OutFile);
+							Node1->nAnimal->OutAnimal(OutFile);
+							Node2->nAnimal->OutAnimal(OutFile);
+							Node2 = Node2->next;
+						}
+					}
+				}
+				Node1 = Node1->next;
+			}
+		}
+	}
+}

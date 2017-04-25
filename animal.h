@@ -22,5 +22,9 @@ public:
 	virtual void OutFish(ofstream &OutFile);
 	virtual int GetParam() = 0;
 	virtual void SetParam(int Param) = 0;
+	virtual void MultiMethod(animal* Other, ofstream  &OutFile) = 0;
+	virtual void MMFish(ofstream &OutFile) = 0;
+	virtual void MMBird(ofstream &OutFile) = 0;
+	virtual void MMBeast(ofstream &OutFile) = 0;
 };
 #endif

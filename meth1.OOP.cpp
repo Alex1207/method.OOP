@@ -1,5 +1,5 @@
 // —читывает из файла данные и переписывает их в другой файл в более читаемом виде(процедурный стиль)
-//
+//+ћультиметоды
 #include "stdafx.h"
 #include <Windows.h>
 #include "iostream"
@@ -24,6 +24,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	mas.Sort();
 	mas.Out(OutFile);
 	mas.OutOnlyFish(OutFile);
+	mas.MultiMethod(OutFile);
 	mas.Del();
 	system("pause");
 	return 0;
