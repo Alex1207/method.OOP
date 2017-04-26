@@ -7,10 +7,13 @@ using namespace std;
 class bird: public animal
 {
 private:
-	string name;
+	//string name;
 	bool migration;
 public:
 	void In(ifstream &f1);
 	void Out(ofstream &f2);
-	int SumElementsOfString(int n);
+	//int SumElementsOfString(int n);
+	void MultiMethod(animal* other, ofstream  &f2);
+	void MMFish(ofstream &f2);//
+	void MMBird(ofstream &f2);//
 };

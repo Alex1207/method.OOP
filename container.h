@@ -22,4 +22,5 @@ public:
 	void Del();
 	void In(ifstream & f1);
 	void Out(ofstream & f2);
+	void  MultiMethod(ofstream & f2);
 };

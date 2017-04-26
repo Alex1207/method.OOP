@@ -15,8 +15,11 @@ private:
 public:
 	static animal* InAnimal(ifstream &f1);
 	void OutAnimal(ofstream &f2);
-	virtual void In(ifstream  &f1)=0;
-	virtual void Out(ofstream  &f2)=0;
+	virtual void In(ifstream &f1) = 0;
+	virtual void Out(ofstream &f2) = 0;
 	int SumElementsOfString(int n);
+	virtual void MultiMethod(animal* other, ofstream  &f2) = 0;
+	virtual void MMFish(ofstream &f2) = 0;
+	virtual void MMBird(ofstream &f2) = 0;
 };
 #endif

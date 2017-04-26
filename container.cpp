@@ -61,10 +61,50 @@ void container::Out(ofstream & f2)
 		if (mas[i] != NULL)
 		{
 			node* vn = mas[i];
-			while (mas[i])
+			while (vn)
 			{
-				mas[i]->Animal->OutAnimal(f2);
-				mas[i] = mas[i]->next;
+				vn->Animal->OutAnimal(f2);
+				vn = vn->next;
+			}
+		}
+	}
+}
+void container::MultiMethod(ofstream & f2)
+{
+	int k = 0;
+	cout << "\nМультиметод: " << endl;
+	f2 << "\nМультиметод: "  << endl;
+	for (int i = 0; i<n; i++)
+	{
+		//cout << "\n" << i << "\n";
+		if (mas[i] != NULL)
+		{
+			node* vn1 = mas[i];
+			while (vn1)
+			{
+				for (int j = i; j<n; j++)
+				{
+					node* vn2;
+					if (j==i)
+						vn2 = vn1->next;
+					else
+						vn2 = mas[j];
+					//cout << "\n" << i << "\n";
+					if (mas[i] != NULL)
+					{
+						//vn2 = mas[i];
+						while (vn2)
+						{
+							k++;
+							cout << k << endl;
+							vn1->Animal->MultiMethod(vn2->Animal, f2);
+							vn1->Animal->OutAnimal(f2);
+							vn2->Animal->OutAnimal(f2);
+							vn2 = vn2->next;
+						}
+					}
+				}
+				vn1 = vn1->next;
 			}
 		}
 	}
