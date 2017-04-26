@@ -53,10 +53,12 @@ void container::In(ifstream & f1)
 }
 void container::Out(ofstream & f2)
 {
+	cout << "Общее количество: " << kol << endl;
+	f2 << "Общее количество: " << kol << endl;
 	for (int i = 0; i<n; i++)
 	{
-		cout << "\n" << i << "\n";
-		if (mas[i] != NULL)
+		//cout << "\n" << i << "\n";
+		if (mas[i] != NULL)	//There is no need to check this condition.
 		{
 			node* vn = mas[i];
 			while (vn)
@@ -67,6 +69,7 @@ void container::Out(ofstream & f2)
 		}
 	}
 }
+
 void container::Sort()
 {
 	for (int k = 0; k<n; k++)
@@ -81,7 +84,7 @@ void container::Sort()
 		}
 		for(int i = 0; i < koli - 1; i++) 
 		{
-			node* prev;
+			node* prev;	//There is no need to do this
 			Node = mas[k];
 			for(int j = i + 1; j < koli; j++) 
 			{
@@ -106,6 +109,53 @@ void container::Sort()
 					prev = Node;
 					Node = Node->next;
 				}
+			}
+		}
+	}
+}
+
+// Alternative: in this function is no need to create a variable koli, it can sort, so far it's possible.
+//void container::Sort()
+//{
+//	for (int k = 0; k<n; k++)
+//	{
+//		bool flag = true;
+//		node* prev;
+//		node* Node = mas[k];
+//		while(flag)
+//		{
+//			flag = false;
+//			Node = mas[k];
+//			while (Node)
+//			{
+//				if(Node->next == NULL)
+//					break;
+//				if(Node->Animal->Less(*Node->next->Animal))
+//				{
+//					node* next = Node->next;
+//					Node->next = Node->next->next;
+//					next->next = Node;
+//					if(Node == mas[k])
+//					{
+//						mas[k] = next;
+//						prev = next;
+//					}
+//					else
+//					{
+//						prev->next = next;
+//						prev = next;
+//					}
+//					flag = true;
+//				}
+//				else 
+//				{
+//					prev = Node;
+//					Node = Node->next;
+//				}
+//			}
+//		}
+//	}
+//}
 void container::OutOnlyFish(ofstream & f2)
 {
 	cout << "\n\nТолько рыбки:\n";
@@ -114,7 +164,7 @@ void container::OutOnlyFish(ofstream & f2)
 	{
 		node* vn = mas[i];
 		//cout << "\n" << i << "\n";
-		if (mas[i] != NULL)
+		if (mas[i] != NULL)	//There is no need to check this condition.
 		{
 			node* vn = mas[i];
 			while (vn)
@@ -125,3 +175,15 @@ void container::OutOnlyFish(ofstream & f2)
 		}
 	}
 }
+
+//This function belongs to container.
+//int container::SumElementsOfString(animal* Animal, int n)
+//{
+//	string str = Animal->name;
+//	int sum = 0;
+//	for (int i = 0; i < str.length(); i++)
+//	{
+//		sum = (sum + (unsigned char)str[i])%n;
+//	}
+//	return sum;
+//}

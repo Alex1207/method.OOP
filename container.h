@@ -4,6 +4,11 @@
 #include <fstream>
 
 using namespace std;
+//class node
+//{
+//public:
+//	...
+//}
 struct node//узел
 {
 	animal *Animal;
@@ -23,4 +28,5 @@ public:
 	void Out(ofstream & f2);
 	void Sort();
 	void OutOnlyFish(ofstream & f2);
+	//int SumElementsOfString(animal* Animal,int n);
 };

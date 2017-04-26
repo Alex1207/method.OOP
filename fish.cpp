@@ -20,6 +20,6 @@ void fish::OutFish(ofstream & f2)
 {
 	cout << name;
 	f2 << name;
-	cout <<  " - это рыбка" << ", место ее обитания: " << places[Place];
-	f2 <<  " - это рыбка" <<  ", место ее обитания: " << places[Place];
+	cout <<  " - это рыбка" << ", место ее обитания: " << places[Place] << endl;
+	f2 <<  " - это рыбка" <<  ", место ее обитания: " << places[Place] << endl;
 }

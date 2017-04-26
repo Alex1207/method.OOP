@@ -22,6 +22,7 @@ animal* animal::InAnimal( ifstream &f1)
 	animal* Animal;
 	int key;
 	f1 >> key;;
+	//switch(key) may be more convinient for adding new case and default case.
 	if (key == 2)//2-beast
 	{
 		Animal = new beast;
